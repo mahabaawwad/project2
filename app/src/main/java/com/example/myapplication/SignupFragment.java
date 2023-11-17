@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,12 +12,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SignupFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class SignupFragment extends Fragment {
+    private FirebaseServices fbs;
     private EditText etUsername,etPassword;
     private Button btnSignup;
 
@@ -71,6 +77,7 @@ public class SignupFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        fbs=FirebaseServices.getInstance();
         etUsername =getView().findViewById(R.id.etUsernameLogin);
         etPassword=getView().findViewById(R.id.etPasswordLogin);
         btnSignup=getView().findViewById(R.id.btnSignupSignup);
@@ -85,9 +92,17 @@ public class SignupFragment extends Fragment {
                 return;
             }
             //signup procedure
+                fbs.getAuth().createUserWithEmailAndPassword(username,password).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getActivity(), "successfully signed up!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "failed to signup! try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
-
-
         });
     }
 }
