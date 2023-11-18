@@ -12,8 +12,8 @@
 
         <EditText
             android:id="@+id/etPasswordLogin"
-            android:layout_width="286dp"
-            android:layout_height="62dp"
+            android:layout_width="289dp"
+            android:layout_height="61dp"
             android:layout_marginTop="33dp"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="77dp"
@@ -26,18 +26,24 @@
 
         <Button
             android:id="@+id/btnSignupSignup"
-            android:layout_width="125dp"
-            android:layout_height="53dp"
+            android:layout_width="123dp"
+            android:layout_height="44dp"
             android:layout_marginBottom="209dp"
+            android:background="@color/blue"
             android:text="SIGNUP"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="#2196F3"
+            android:textColorLink="@color/blue"
             app:iconTint="#039DE3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="#2196F3" />
 
         <EditText
             android:id="@+id/etUsernameLogin"
-            android:layout_width="290dp"
+            android:layout_width="294dp"
             android:layout_height="68dp"
             android:layout_marginTop="274dp"
             android:layout_marginBottom="33dp"
@@ -46,6 +52,7 @@
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@+id/etPasswordLogin"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

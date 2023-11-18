@@ -27,4 +27,7 @@ public class FirebaseServices {
         }
         return instance;
     }
+
+    public FirebaseFirestore getFire() {return fire;
+    }
 }
