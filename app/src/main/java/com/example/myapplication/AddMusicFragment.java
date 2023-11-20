@@ -91,16 +91,17 @@ public class AddMusicFragment extends Fragment {
 
                 //get data from screen
                 String composerName =etComposerName.getText().toString();
+                String pieceName=etPieceName.getText().toString();
                 String pagesNum = etPagesNum.getText().toString();
                 String year=etYear.getText().toString();
-                String pieceName=etPieceName.getText().toString();
+
 
                 if (composerName.trim().isEmpty()||pagesNum.isEmpty()|| year.trim().isEmpty()||pieceName.trim().isEmpty())
                 {
                     Toast.makeText(getActivity(), "some fields are empty! ", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Music rest=new Music(composerName,pagesNum,pieceName,year);
+                Music rest=new Music(composerName,pieceName,pagesNum,year);
                 fbs.getFire().collection("music").add(rest).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {

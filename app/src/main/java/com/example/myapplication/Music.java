@@ -6,11 +6,11 @@ public class Music {
     private String piecePages;
     private String name;
 
-    public Music(String composerName, String pagesNum, String year, String pieceName) {
+    public Music(String composerName, String pieceName, String pagesNum, String year) {
         composer=composerName;
-        pieceYear=year;
-        piecePages=pagesNum;
         name=pieceName;
+        piecePages=pagesNum;
+        pieceYear=year;
 
     }
 
@@ -41,16 +41,16 @@ public class Music {
         this.name = songName;
     }
 
-    public void setPieceYear(String pieceYear) {pieceYear = pieceYear;
+    public void setPieceYear(String pieceYear) {this.pieceYear = pieceYear;
     }
 
     @Override
     public String toString() {
         return "Music{" +
                 "composer='" + composer + '\'' +
-                ", year=" + pieceYear +
+                ", songName='" + name +
                 ", pages=" + piecePages +
-                ", songName='" + name + '\'' +
+                ", year='" + pieceYear + '\'' +
                 '}';
     }
 
