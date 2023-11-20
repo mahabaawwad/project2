@@ -13,14 +13,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayoutMain,new AddMusicFragment());
+        ft.commit();
+
         gotoLoginFragment();
+
 
     }
 
-    private void gotoLoginFragment() {
+    public void gotoLoginFragment(){
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayoutMain,new LoginFragment());
+        ft.replace(R.id.frameLayoutMain,new AddMusicFragment());
         ft.commit();
+
+
 
     }
 

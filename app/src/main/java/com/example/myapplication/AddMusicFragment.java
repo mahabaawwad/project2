@@ -83,23 +83,24 @@ public class AddMusicFragment extends Fragment {
         etComposerName=getView().findViewById(R.id.etComposerNameAddmusic);
         etPagesNum=getView().findViewById(R.id.etPagesNumAddmusic);
         etYear=getView().findViewById(R.id.etYearAddmusic);
-        etPieceName=getView().findViewById(R.id.etPieceNameAddmusic);
+        etPieceName=getView().findViewById(R.id.etPieceNameAddMusic);
         btnAdd=getView().findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo:add data to firebase
+
                 //get data from screen
                 String composerName =etComposerName.getText().toString();
                 String pagesNum = etPagesNum.getText().toString();
                 String year=etYear.getText().toString();
                 String pieceName=etPieceName.getText().toString();
 
-                if (composerName.trim().isEmpty()||pagesNum.isEmpty()|| year.trim().isEmpty()||pieceName.trim().isEmpty()){
+                if (composerName.trim().isEmpty()||pagesNum.isEmpty()|| year.trim().isEmpty()||pieceName.trim().isEmpty())
+                {
                     Toast.makeText(getActivity(), "some fields are empty! ", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Music rest=new Music(composerName,pagesNum,year,pieceName);
+                Music rest=new Music(composerName,pagesNum,pieceName,year);
                 fbs.getFire().collection("music").add(rest).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {

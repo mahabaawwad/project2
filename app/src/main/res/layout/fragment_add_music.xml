@@ -13,69 +13,66 @@
         <EditText
             android:id="@+id/etComposerNameAddmusic"
             android:layout_width="242dp"
-            android:layout_height="0dp"
+            android:layout_height="69dp"
             android:layout_marginTop="228dp"
-            android:layout_marginBottom="21dp"
+            android:layout_marginBottom="147dp"
             android:ems="10"
             android:hint="Composer Name.."
             android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/etPagesNumAddmusic"
+            app:layout_constraintBottom_toTopOf="@+id/etPieceNameAddMusic"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/etPagesNumAddmusic"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="241dp"
+            android:layout_height="62dp"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginBottom="18dp"
             android:ems="10"
             android:hint="pages number..."
             android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/etYearAddmusic"
             app:layout_constraintEnd_toEndOf="@+id/etYearAddmusic"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/etYearAddmusic"
             app:layout_constraintTop_toBottomOf="@+id/etComposerNameAddmusic" />
 
         <EditText
             android:id="@+id/etYearAddmusic"
-            android:layout_width="240dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="15dp"
+            android:layout_width="244dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="124dp"
             android:ems="10"
             android:hint="year.."
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/etPieceNameAddmusic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPagesNumAddmusic" />
 
-        <EditText
-            android:id="@+id/etPieceNameAddmusic"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="63dp"
-            android:ems="10"
-            android:hint="piece name"
-            android:inputType="phone"
-            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-            app:layout_constraintEnd_toEndOf="@+id/etYearAddmusic"
-            app:layout_constraintStart_toStartOf="@+id/etComposerNameAddmusic"
-            app:layout_constraintTop_toBottomOf="@+id/etYearAddmusic" />
-
         <Button
             android:id="@+id/btnAdd"
-            android:layout_width="117dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="118dp"
+            android:layout_width="113dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="108dp"
             android:text="add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPieceNameAddmusic" />
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/etPieceNameAddMusic"
+            android:layout_width="243dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="280dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="piece name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.462"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
