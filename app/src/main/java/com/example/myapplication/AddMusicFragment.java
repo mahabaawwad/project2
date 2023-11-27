@@ -101,7 +101,7 @@ public class AddMusicFragment extends Fragment {
                     Toast.makeText(getActivity(), "some fields are empty! ", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Music rest=new Music(composerName,pieceName,pagesNum,year);
+                MusicNote rest=new MusicNote(composerName,pieceName,pagesNum,year);
                 fbs.getFire().collection("music").add(rest).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {

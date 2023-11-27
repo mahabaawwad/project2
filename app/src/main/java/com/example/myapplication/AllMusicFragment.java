@@ -2,11 +2,21 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +24,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class AllMusicFragment extends Fragment {
+    private  FirebaseServices fbs;
+    private ArrayList<MusicNote> rests;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -62,5 +74,28 @@ public class AllMusicFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_all_music, container, false);
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        fbs = FirebaseServices.getInstance();
+        rests = new ArrayList<>();
+        fbs.getFire().collection("restaurants").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
+                    MusicNote rest = dataSnapshot.toObject(MusicNote.class);
+
+                    rests.add(rest);
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), "No data available", Toast.LENGTH_SHORT).show();
+                Log.e("AllRestaurantsFragment", e.getMessage());
+            }
+        });
     }
 }

@@ -1,12 +1,12 @@
 package com.example.myapplication;
 
-public class Music {
+public class MusicNote {
     private String composer;
     private String pieceYear;
     private String piecePages;
     private String name;
 
-    public Music(String composerName, String pieceName, String pagesNum, String year) {
+    public MusicNote(String composerName, String pieceName, String pagesNum, String year) {
         composer=composerName;
         name=pieceName;
         piecePages=pagesNum;
